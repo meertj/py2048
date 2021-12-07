@@ -127,16 +127,3 @@ def moveLeftRight(board,score,left):
 
     return board, score
 
-def main():
-    #board = [[2, 0, 0, 0],[2, 0, 0, 0],[4, 0, 0, 0],[0, 0, 0, 0]]
-    #score = 0
-    #up = 1
-    #return moveUpDown(board, score, up)
-    board = [[2, 2, 4, 0],[2, 0, 2, 0],[4, 0, 0, 2],[0, 0, 0, 0]]
-    score = 0
-    left = 1
-    return moveLeftRight(board, score, left)
-    
-
-if __name__ == "__main__":
-    main()
