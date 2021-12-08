@@ -6,54 +6,58 @@ def moveUpDown(board, score, up):
     # Check for shift and for loops to shift accordingly
     if up == 1:
     # Adds like terms and eliminates duplicates up shifts
-            for xx in range(4):
-                for ee in range(3):
-                    if board[ee][xx] == board[ee+1][xx]:
-                        board[ee][xx] = 2*board[ee][xx]
-                        board[ee+1][xx] = 0
-                    elif ee < 2 and board[ee+1][xx] == 0 and board[ee][xx] == board[ee+2][xx]:
-                        board[ee][xx] = 2*board[ee][xx]
-                        board[ee+2][xx] = 0
-                    elif ee < 1 and board[ee+2][xx] == 0 and board[ee][xx] == board[ee+3][xx]:
-                        board[ee][xx] = 2*board[ee][xx]
-                        board[ee+3][xx] = 0
-                    else:
-                        break
+        for col in range(4):
+            for row in range(3):
+                if board[row][col] == board[row+1][col]:
+                    board[row][col] = 2*board[row][col]
+                    board[row+1][col] = 0
                     # Change Score
-                    score = score + board[ee][xx]
+                    score = score + board[row][col]
+                elif row < 2 and board[row+1][col] == 0 and board[row][col] == board[row+2][col]:
+                    board[row][col] = 2*board[row][col]
+                    board[row+2][col] = 0
+                    # Change Score
+                    score = score + board[row][col]
+                elif row < 1 and board[row+2][col] == 0 and board[row][col] == board[row+3][col]:
+                    board[row][col] = 2*board[row][col]
+                    board[row+3][col] = 0
+                    # Change Score
+                    score = score + board[row][col]
 
-            for aa in range(3):
-                for jj in range(4):
-                    for ii in range(4):
-                        if board[ii][jj] == 0:
-                            if ii == 3:
-                               board[ii][jj] = 0
-                            else:
-                                board[ii][jj] = board[ii+1][jj]
-                                board[ii+1][jj] = 0
+        for reps in range(3):
+            for jj in range(4):
+                for ii in range(4):
+                    if board[ii][jj] == 0:
+                        if ii == 3:
+                           board[ii][jj] = 0
+                        else:
+                            board[ii][jj] = board[ii+1][jj]
+                            board[ii+1][jj] = 0
 
     # This else shifts all tiles down
     else:
         # Adds like terms and eliminates duplicates for down shifts
-        for xx in range(3, 0):
-            for ee in range(3, 1):
-                if board[ee][xx] == board[ee-1][xx]:
-                    board[ee][xx] = 2*board[ee][xx]
-                    board[ee-1][xx] = 0
-                elif ee > 1 and board[ee-1][xx] == 0 and board[ee][xx] == board[ee-2][xx]:
-                    board[ee][xx] = 2*board[ee][xx]
-                    board[ee-2][xx] = 0
-                elif ee > 2 and board[ee-2][xx] == 0 and board[ee][xx] == board[ee-3][xx]:
-                    board[ee][xx] = 2*board[ee][xx]
-                    board[ee-3][xx] = 0
-                else:
-                    break
-                # Change Score
-                score = score + board[ee][xx]
+        for col in range(3, -1, -1):
+            for row in range(3, 0, -1):
+                if board[row][col] == board[row-1][col]:
+                    board[row][col] = 2*board[row][col]
+                    board[row-1][col] = 0
+                    # Change Score
+                    score = score + board[row][col]
+                elif row > 1 and board[row-1][col] == 0 and board[row][col] == board[row-2][col]:
+                    board[row][col] = 2*board[row][col]
+                    board[row-2][col] = 0
+                    # Change Score
+                    score = score + board[row][col]
+                elif row > 2 and board[row-2][col] == 0 and board[row][col] == board[row-3][col]:
+                    board[row][col] = 2*board[row][col]
+                    board[row-3][col] = 0
+                    # Change Score
+                    score = score + board[row][col]
 
-        for aa in range(3):
+        for reps in range(3):
             for jj in range(4): 
-                for ii in range(3, 0):
+                for ii in range(3, -1, -1):
                     if board[ii][jj] == 0:
                         if ii == 0:
                             board[ii][jj] = 0
@@ -70,53 +74,57 @@ def moveLeftRight(board,score,left):
     # Check for shift and for loops to shift accordingly
     if left == 1:
     # Adds like terms and eliminates duplicates for left shifts
-        for ee in range(4):
-            for xx in range(3):
-                if board[ee][xx] == board[ee][xx+1]:
-                    board[ee][xx] = 2*board[ee][xx]
-                    board[ee][xx+1] = 0
-                elif xx < 2 and board[ee][xx+1] == 0 and board[ee][xx] == board[ee][xx+2]:
-                    board[ee][xx] = 2*board[ee][xx]
-                    board[ee][xx+2] = 0
-                elif xx < 1 and board[ee][xx+2] == 0 and board[ee][xx] == board[ee][xx+3]:
-                    board[ee][xx] = 2*board[ee][xx]
-                    board[ee+3][xx] = 0
-                else:
-                    break
-                # Change Score
-                score = score + board[ee][xx]
+        for row in range(4):
+            for col in range(3):
+                if board[row][col] == board[row][col+1]:
+                    board[row][col] = 2*board[row][col]
+                    board[row][col+1] = 0
+                    # Change Score
+                    score = score + board[row][col]
+                elif col < 2 and board[row][col+1] == 0 and board[row][col] == board[row][col+2]:
+                    board[row][col] = 2*board[row][col]
+                    board[row][col+2] = 0
+                    # Change Score
+                    score = score + board[row][col]
+                elif col < 1 and board[row][col+2] == 0 and board[row][col] == board[row][col+3]:
+                    board[row][col] = 2*board[row][col]
+                    board[row+3][col] = 0
+                    # Change Score
+                    score = score + board[row][col]
 
-            for aa in range(3):
-                for ii in range(4):
-                    for jj in range(4):
-                        if board[ii][jj]== 0:
-                            if jj == 3:
-                               board[ii][jj] = 0
-                            else:
-                                board[ii][jj] = board[ii][jj+1]
-                                board[ii][jj+1] = 0
+        for reps in range(3):
+            for ii in range(4):
+                for jj in range(4):
+                    if board[ii][jj]== 0:
+                        if jj == 3:
+                           board[ii][jj] = 0
+                        else:
+                            board[ii][jj] = board[ii][jj+1]
+                            board[ii][jj+1] = 0
 
     # This else shifts all tiles to the right        
     else:
         # Adds like terms and eliminates duplicates for right shifts
-        for ee in range(4):
-            for xx in range(4,1):
-                if board[ee][xx] == board[ee][xx-1]:
-                    board[ee][xx] = 2*board[ee][xx]
-                    board[ee][xx-1] = 0
-                elif xx > 2 and board[ee][xx-2] == 0 and board[ee][xx] == board[ee][xx-3]:
-                    board[ee][xx] = 2*board[ee][xx]
-                    board[ee][xx-3] = 0
-                elif xx > 1 and board[ee][xx-1] == 0 and board[ee][xx] == board[ee][xx-2]:
-                    board[ee][xx] = 2*board[ee][xx]
-                    board[ee][xx-2] = 0
-                else:
-                    break
-                # Change Score
-                score = score + board[ee][xx]
-                    
-        for aa in range(4):
-            for jj in range(4, 0):
+        for row in range(4):
+            for col in range(4, 1, -1):
+                if board[row][col] == board[row][col-1]:
+                    board[row][col] = 2*board[row][col]
+                    board[row][col-1] = 0
+                    # Change Score
+                    score = score + board[row][col]
+                elif col > 2 and board[row][col-2] == 0 and board[row][col] == board[row][col-3]:
+                    board[row][col] = 2*board[row][col]
+                    board[row][col-3] = 0
+                    # Change Score
+                    score = score + board[row][col]
+                elif col > 1 and board[row][col-1] == 0 and board[row][col] == board[row][col-2]:
+                    board[row][col] = 2*board[row][col]
+                    board[row][col-2] = 0
+                    # Change Score
+                    score = score + board[row][col]
+                
+        for reps in range(4):
+            for jj in range(4, 0, -1):
                 for ii in range(4):
                     if board[ii][jj] == 0:
                         if jj == 1:
@@ -127,3 +135,11 @@ def moveLeftRight(board,score,left):
 
     return board, score
 
+board = [[2, 0, 0, 0],[2, 0, 0, 0],[4, 0, 0, 0],[0, 0, 0, 0]]
+score = 0
+up = 0
+moveUpDown(board, score, up)
+print(board[0])
+print(board[1])
+print(board[2])
+print(board[3])

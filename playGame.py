@@ -9,7 +9,8 @@ Created on Sat Dec  4 18:28:28 2021
 # Verify L/R and U/D logic against test cases
 # Add in keyboard listening
 # Error check (termination criteria)
-# Directly injest key type
+# Directly ingest key type
+# Right doesnt work
 
 from pynput.keyboard import Key, Listener
 from utils2048 import moveUpDown, moveLeftRight
@@ -67,7 +68,10 @@ def main():
             # Throw error
             print("ERROR")
         
-        print(board)
+        print(board[0])
+        print(board[1])
+        print(board[2])
+        print(board[3])
     
 
 if __name__ == "__main__":
