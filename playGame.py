@@ -16,9 +16,12 @@ from utils2048 import moveUpDown, moveLeftRight
 
 def on_release(key):
     global userInput
+    userInput = Key
     validKeys = [Key.up, Key.down, Key.left, Key.right]
     if key in validKeys: 
         userInput = key
+        return False
+    else:
         return False
 
 def getKeyPress():
@@ -40,10 +43,16 @@ def main():
     playGame = True
 
     while playGame:
-        # Checks for a valid game
+
         #userInput = Key # Clear out global variable for each game move -> prevents doubling up
         getKeyPress()
         print(str(userInput))
+        
+        # Checks for a valid game
+        if userInput not in [Key.up, Key.down, Key.left, Key.right]:
+            print("Invalid Key")
+            return False
+        
         
         # I would put in a switch/case statement here if doing in C++/MATLAB etc
         if userInput == Key.up:
