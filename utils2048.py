@@ -106,7 +106,7 @@ def moveLeftRight(board,score,left):
     else:
         # Adds like terms and eliminates duplicates for right shifts
         for row in range(4):
-            for col in range(4, 1, -1):
+            for col in range(3, 0, -1):
                 if board[row][col] == board[row][col-1]:
                     board[row][col] = 2*board[row][col]
                     board[row][col-1] = 0
@@ -123,11 +123,11 @@ def moveLeftRight(board,score,left):
                     # Change Score
                     score = score + board[row][col]
                 
-        for reps in range(4):
-            for jj in range(4, 0, -1):
+        for reps in range(3):
+            for jj in range(3, -1, -1):
                 for ii in range(4):
                     if board[ii][jj] == 0:
-                        if jj == 1:
+                        if jj == 0:
                             board[ii][jj] = 0
                         else:
                             board[ii][jj] = board[ii][jj-1]
