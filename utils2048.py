@@ -1,5 +1,7 @@
 # moveUpDown.py
 
+from random import randint
+
 def moveUpDown(board, score, up):
     # MoveUpDown Takes a matrix, current score, and up or down as input.
     # Shifts matrix according to inputs and outputs new board and score.
@@ -135,11 +137,30 @@ def moveLeftRight(board,score,left):
 
     return board, score
 
-board = [[2, 0, 0, 0],[2, 0, 0, 0],[4, 0, 0, 0],[0, 0, 0, 0]]
-score = 0
-up = 0
-moveUpDown(board, score, up)
-print(board[0])
-print(board[1])
-print(board[2])
-print(board[3])
+def randEntry(board):
+    # Need to input new random 4 or 2 in an empty space in the board
+    # This will be in constant space, so no need to make something fancy, just loop through twice
+    zeroLocations = list()
+    randVals = [2, 4]
+    randVal = randVals[randint(0, 1)]
+    
+    for i in range(4):
+        for j in range(4):
+            if board[i][j] == 0:
+                zeroLocations.append([i, j])
+                
+    insertNew = zeroLocations[randint(0, len(zeroLocations)-1)]
+    
+    board[insertNew[0]][insertNew[1]] = randVal
+
+    return board
+
+# board = [[2, 0, 0, 0],[2, 0, 0, 0],[4, 0, 0, 0],[0, 0, 0, 0]]
+# score = 0
+# up = 0
+# moveUpDown(board, score, up)
+# print(board[0])
+# print(board[1])
+# print(board[2])
+# print(board[3])
+# randEntry(board)

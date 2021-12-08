@@ -7,13 +7,15 @@ Created on Sat Dec  4 18:28:28 2021
 
 # TODOs 
 # Verify L/R and U/D logic against test cases
-# Add in keyboard listening
 # Error check (termination criteria)
 # Directly ingest key type
-# Right doesnt work
+# Need to input new random 4 or 2 in an empty space in the board
+# Rescale board image
+# Dont insert random val for a non-valid move
+
 
 from pynput.keyboard import Key, Listener
-from utils2048 import moveUpDown, moveLeftRight
+from utils2048 import moveUpDown, moveLeftRight, randEntry
 
 def on_release(key):
     global userInput
@@ -67,6 +69,8 @@ def main():
         else:
             # Throw error
             print("ERROR")
+            
+        randEntry(board) # Update board with the new entry
         
         print(board[0])
         print(board[1])
