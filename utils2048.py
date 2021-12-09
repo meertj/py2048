@@ -154,13 +154,3 @@ def randEntry(board):
     board[insertNew[0]][insertNew[1]] = randVal
 
     return board
-
-# board = [[2, 0, 0, 0],[2, 0, 0, 0],[4, 0, 0, 0],[0, 0, 0, 0]]
-# score = 0
-# up = 0
-# moveUpDown(board, score, up)
-# print(board[0])
-# print(board[1])
-# print(board[2])
-# print(board[3])
-# randEntry(board)

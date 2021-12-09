@@ -16,6 +16,7 @@ Created on Sat Dec  4 18:28:28 2021
 
 from pynput.keyboard import Key, Listener
 from utils2048 import moveUpDown, moveLeftRight, randEntry
+import copy
 
 def on_release(key):
     global userInput
@@ -30,8 +31,6 @@ def on_release(key):
 def getKeyPress():
     with Listener(on_release=on_release) as listener:
       listener.join()
-
-
     
 
 def main():
@@ -39,10 +38,20 @@ def main():
     #score = 0
     #up = 1
     #return moveUpDown(board, score, up)
-    board = [[2, 2, 4, 0],[2, 0, 2, 0],[4, 0, 0, 2],[0, 0, 0, 0]]
+    #board = [[2, 2, 4, 0],[2, 0, 2, 0],[4, 0, 0, 2],[0, 0, 0, 0]]
+    
+    # Game Initialization
+    board = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+    randEntry(board) # Initialize board with two entries
+    randEntry(board)
     score = 0
+    
+    
     # Play game logic
-    print(board)
+    print(board[0])
+    print(board[1])
+    print(board[2])
+    print(board[3])
     playGame = True
 
     while playGame:
@@ -56,6 +65,7 @@ def main():
             print("Invalid Key")
             return False
         
+        oldBoard = copy.deepcopy(board)
         
         # I would put in a switch/case statement here if doing in C++/MATLAB etc
         if userInput == Key.up:
@@ -70,7 +80,12 @@ def main():
             # Throw error
             print("ERROR")
             
-        randEntry(board) # Update board with the new entry
+        # Check to see if anything changed
+        if oldBoard != board:   
+            randEntry(board) # Update board with the new entry
+        else: 
+            # Keep track of invalid moves, if all four directions cue this logic, it's time to end the game
+            print("Logic check")
         
         print(board[0])
         print(board[1])
