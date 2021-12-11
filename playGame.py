@@ -9,56 +9,46 @@ Created on Sat Dec  4 18:28:28 2021
 # Verify L/R and U/D logic against test cases
 # Error check (termination criteria)
 # Directly ingest key type
-# Need to input new random 4 or 2 in an empty space in the board
 # Rescale board image
-# Dont insert random val for a non-valid move
-
+# GUI?
+# Fix score
 
 from pynput.keyboard import Key, Listener
-from utils2048 import moveUpDown, moveLeftRight, randEntry
+from utils2048 import moveUpDown, moveLeftRight, randEntry, printGameDetails
 import copy
 
 def on_release(key):
     global userInput
+    
+    # Clear out global variable for each game move -> prevents doubling up
     userInput = Key
     validKeys = [Key.up, Key.down, Key.left, Key.right]
     if key in validKeys: 
         userInput = key
-        return False
-    else:
-        return False
+    return False
 
 def getKeyPress():
     with Listener(on_release=on_release) as listener:
       listener.join()
     
 
-def main():
-    #board = [[2, 0, 0, 0],[2, 0, 0, 0],[4, 0, 0, 0],[0, 0, 0, 0]]
-    #score = 0
-    #up = 1
-    #return moveUpDown(board, score, up)
-    #board = [[2, 2, 4, 0],[2, 0, 2, 0],[4, 0, 0, 2],[0, 0, 0, 0]]
-    
+def main():    
     # Game Initialization
     board = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
-    randEntry(board) # Initialize board with two entries
-    randEntry(board)
     score = 0
     
+    randEntry(board) # Initialize board with two entries
+    randEntry(board)
+    
+    printGameDetails(board, score)
     
     # Play game logic
-    print(board[0])
-    print(board[1])
-    print(board[2])
-    print(board[3])
     playGame = True
 
     while playGame:
 
-        #userInput = Key # Clear out global variable for each game move -> prevents doubling up
         getKeyPress()
-        print(str(userInput))
+        #print(str(userInput))
         
         # Checks for a valid game
         if userInput not in [Key.up, Key.down, Key.left, Key.right]:
@@ -87,10 +77,8 @@ def main():
             # Keep track of invalid moves, if all four directions cue this logic, it's time to end the game
             print("Logic check")
         
-        print(board[0])
-        print(board[1])
-        print(board[2])
-        print(board[3])
+        printGameDetails(board, score)
+
     
 
 if __name__ == "__main__":

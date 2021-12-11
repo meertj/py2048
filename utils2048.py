@@ -69,7 +69,7 @@ def moveUpDown(board, score, up):
 
     return board, score 
 
-def moveLeftRight(board,score,left):
+def moveLeftRight(board, score, left):
     
     # MoveLeftRight Takes a matrix, current score, and left or right as input.
     # Shifts matrix according to inputs and outputs new board and score.
@@ -154,3 +154,11 @@ def randEntry(board):
     board[insertNew[0]][insertNew[1]] = randVal
 
     return board
+
+def printGameDetails(board, score):
+    
+    print(board[0])
+    print(board[1])
+    print(board[2])
+    print(board[3])
+    print("Score: ", score)
