@@ -1,9 +1,20 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Dec  4 18:28:28 2021
+#----------------------------------------------------------------------------
+# Created By  : JJM
+# Created Date: Sat Dec  4 18:28:28 2021
+# version ='1.0'
+# ---------------------------------------------------------------------------
+""" Details about the module and for what purpose it was built for"""
+# ---------------------------------------------------------------------------
+# Rev history
+# ---------------------------------------------------------------------------
 
-@author: meert
-"""
+# ---------------------------------------------------------------------------
+# Imports
+# ---------------------------------------------------------------------------
+from pynput.keyboard import Key, Listener
+from utils2048 import moveUpDown, moveLeftRight, randEntry, printGameDetails
+import copy
 
 # TODOs 
 # Verify L/R and U/D logic against test cases
@@ -12,10 +23,7 @@ Created on Sat Dec  4 18:28:28 2021
 # Rescale board image
 # GUI?
 # Fix score
-
-from pynput.keyboard import Key, Listener
-from utils2048 import moveUpDown, moveLeftRight, randEntry, printGameDetails
-import copy
+# Fixed +3 bug
 
 def on_release(key):
     global userInput

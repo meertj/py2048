@@ -1,7 +1,16 @@
-# moveUpDown.py
-
+# -*- coding: utf-8 -*-
+#----------------------------------------------------------------------------
+# Created By  : JJM
+# Created Date: Sat Dec  4 18:28:28 2021
+# version ='1.0'
+# ---------------------------------------------------------------------------
+""" Details about the module and for what purpose it was built for"""
+# ---------------------------------------------------------------------------
+# Imports
+# ---------------------------------------------------------------------------
 from random import randint
 
+# moveUpDown.py
 def moveUpDown(board, score, up):
     # MoveUpDown Takes a matrix, current score, and up or down as input.
     # Shifts matrix according to inputs and outputs new board and score.
@@ -90,7 +99,7 @@ def moveLeftRight(board, score, left):
                     score = score + board[row][col]
                 elif col < 1 and board[row][col+2] == 0 and board[row][col] == board[row][col+3]:
                     board[row][col] = 2*board[row][col]
-                    board[row+3][col] = 0
+                    board[row][col+3] = 0
                     # Change Score
                     score = score + board[row][col]
 
