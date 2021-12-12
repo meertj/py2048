@@ -20,10 +20,9 @@ import copy
 # Verify L/R and U/D logic against test cases
 # Error check (termination criteria)
 # Directly ingest key type
-# Rescale board image
-# GUI?
-# Fix score
-# Fixed +3 bug
+# Rescale board image (gmd line)
+# Two game modes (cmd line and gui)
+
 
 def on_release(key):
     global userInput
@@ -67,13 +66,13 @@ def main():
         
         # I would put in a switch/case statement here if doing in C++/MATLAB etc
         if userInput == Key.up:
-            moveUpDown(board, score, 1)
+            board, score = moveUpDown(board, score, 1)
         elif userInput == Key.down:
-            moveUpDown(board, score, 0)
+            board, score = moveUpDown(board, score, 0)
         elif userInput == Key.left:
-            moveLeftRight(board, score, 1)
+            board, score = moveLeftRight(board, score, 1)
         elif userInput == Key.right:
-            moveLeftRight(board, score, 0)
+            board, score = moveLeftRight(board, score, 0)
         else:
             # Throw error
             print("ERROR")
