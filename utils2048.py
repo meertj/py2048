@@ -6,9 +6,14 @@
 # ---------------------------------------------------------------------------
 """ Details about the module and for what purpose it was built for"""
 # ---------------------------------------------------------------------------
+# Rev history
+# ---------------------------------------------------------------------------
+
+# ---------------------------------------------------------------------------
 # Imports
 # ---------------------------------------------------------------------------
 from random import randint
+import copy
 
 # moveUpDown.py
 def moveUpDown(board, score, up):
@@ -169,13 +174,17 @@ def checkTermination(board):
     for row in board:  
         if 0 in row:
             return False
+        if 2048 in row:
+            return True
+        
+    oldBoard = copy.deepcopy(board)
     # Try all possible moves
-    tempBoard, tempScore1 = moveUpDown(board, 0, 1)
-    tempBoard, tempScore2 = moveUpDown(board, 0, 0)
-    tempBoard, tempScore3 = moveLeftRight(board, 0, 1)
-    tempBoard, tempScore4 = moveLeftRight(board, 0, 0)
+    tempBoard1, tempScore1 = moveUpDown(oldBoard, 0, 1)
+    tempBoard2, tempScore2 = moveUpDown(oldBoard, 0, 0)
+    tempBoard3, tempScore3 = moveLeftRight(oldBoard, 0, 1)
+    tempBoard4, tempScore4 = moveLeftRight(oldBoard, 0, 0)
 
-    if tempScore1 + tempScore2 + tempScore3 + tempScore4 != 0:
+    if tempScore1 + tempScore2 + tempScore3 + tempScore4 == 0:
         return True 
     else:
         return False
