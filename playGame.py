@@ -12,9 +12,9 @@
 # ---------------------------------------------------------------------------
 # Imports
 # ---------------------------------------------------------------------------
-from pynput.keyboard import Key, Listener
 from utils2048 import moveUpDown, moveLeftRight, randEntry, printGameDetails
 import copy
+from pynput.keyboard import Key, Listener
 
 # TODOs 
 # Verify L/R and U/D logic against test cases
@@ -22,8 +22,7 @@ import copy
 # Directly ingest key type
 # Rescale board image (gmd line)
 # Two game modes (cmd line and gui)
-
-
+        
 def on_release(key):
     global userInput
     
@@ -37,7 +36,6 @@ def on_release(key):
 def getKeyPress():
     with Listener(on_release=on_release) as listener:
       listener.join()
-    
 
 def main():    
     # Game Initialization
