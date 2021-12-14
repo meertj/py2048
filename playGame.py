@@ -2,13 +2,13 @@
 #----------------------------------------------------------------------------
 # Created By  : JJM
 # Created Date: Sat Dec  4 18:28:28 2021
-# version ='1.0'
+# version = '1.0'
 # ---------------------------------------------------------------------------
 """ CMD line version of py2048 """
 # ---------------------------------------------------------------------------
 # Rev history
 # ---------------------------------------------------------------------------
-
+# 1.0 - Initial commit
 # ---------------------------------------------------------------------------
 # Imports
 # ---------------------------------------------------------------------------
@@ -17,9 +17,6 @@ import copy
 from pynput.keyboard import Key, Listener
 
 # TODOs 
-# Verify L/R and U/D logic against test cases
-# Error check (termination criteria)
-# Directly ingest key type
 # Rescale board image (gmd line)
         
 def on_release(key):

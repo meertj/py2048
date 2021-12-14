@@ -2,20 +2,19 @@
 #----------------------------------------------------------------------------
 # Created By  : JJM
 # Created Date: Sat Dec  4 18:28:28 2021
-# version ='1.0'
+# version = '1.0'
 # ---------------------------------------------------------------------------
 """ Details about the module and for what purpose it was built for"""
 # ---------------------------------------------------------------------------
 # Rev history
 # ---------------------------------------------------------------------------
-
+# 1.0 - Initial commit
 # ---------------------------------------------------------------------------
 # Imports
 # ---------------------------------------------------------------------------
 from random import randint
 import copy
 
-# moveUpDown.py
 def moveUpDown(board, score, up):
     # MoveUpDown Takes a matrix, current score, and up or down as input.
     # Shifts matrix according to inputs and outputs new board and score.
@@ -84,7 +83,6 @@ def moveUpDown(board, score, up):
     return board, score 
 
 def moveLeftRight(board, score, left):
-    
     # MoveLeftRight Takes a matrix, current score, and left or right as input.
     # Shifts matrix according to inputs and outputs new board and score.
     # Check for shift and for loops to shift accordingly
@@ -152,8 +150,9 @@ def moveLeftRight(board, score, left):
     return board, score
 
 def randEntry(board):
-    # Need to input new random 4 or 2 in an empty space in the board
-    # This will be in constant space, so no need to make something fancy, just loop through twice
+    # Need to input a new random 4 or 2 in an empty space in the board
+    # This will be in constant space, so no need to make something fancy, 
+    # just loop through twice
     zeroLocations = list()
     randVals = [2, 4]
     randVal = randVals[randint(0, 1)]
@@ -178,6 +177,7 @@ def checkTermination(board):
             return True
         
     oldBoard = copy.deepcopy(board)
+    
     # Try all possible moves
     tempBoard1, tempScore1 = moveUpDown(oldBoard, 0, 1)
     tempBoard2, tempScore2 = moveUpDown(oldBoard, 0, 0)
