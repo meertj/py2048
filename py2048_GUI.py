@@ -142,18 +142,18 @@ def main():
     board = randEntry(board)
         
     # Initialize Game Sprites
-    BackGround = Background('Board.png', [0, 0])
-    Tile2 = Tile("Tile2.png", 0, [0, 0])
-    Tile4 = Tile("Tile4.png", 0, [0, 0])
-    Tile8 = Tile("Tile8.png", 0, [0, 0])
-    Tile16 = Tile("Tile16.png", 0, [0, 0])
-    Tile32 = Tile("Tile32.png", 0, [0, 0])
-    Tile64 = Tile("Tile64.png", 0, [0, 0])
-    Tile128 = Tile("Tile128.png", 0, [0, 0])
-    Tile256 = Tile("Tile256.png", 0, [0, 0])
-    Tile512 = Tile("Tile512.png", 0, [0, 0])
-    Tile1024 = Tile("Tile1024.png", 0, [0, 0])
-    Tile2048 = Tile("Tile2048.png", 0, [0, 0])
+    BackGround = Background('images/Board.png', [0, 0])
+    Tile2 = Tile("images/Tile2.png", 0, [0, 0])
+    Tile4 = Tile("images/Tile4.png", 0, [0, 0])
+    Tile8 = Tile("images/Tile8.png", 0, [0, 0])
+    Tile16 = Tile("images/Tile16.png", 0, [0, 0])
+    Tile32 = Tile("images/Tile32.png", 0, [0, 0])
+    Tile64 = Tile("images/Tile64.png", 0, [0, 0])
+    Tile128 = Tile("images/Tile128.png", 0, [0, 0])
+    Tile256 = Tile("images/Tile256.png", 0, [0, 0])
+    Tile512 = Tile("images/Tile512.png", 0, [0, 0])
+    Tile1024 = Tile("images/Tile1024.png", 0, [0, 0])
+    Tile2048 = Tile("images/Tile2048.png", 0, [0, 0])
     
     values2tiles = { 2 : Tile2, 4 : Tile4, 8 : Tile8, 16 : Tile16,
                      32 : Tile32, 64 : Tile64, 128 : Tile128, 
