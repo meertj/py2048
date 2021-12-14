@@ -164,6 +164,23 @@ def randEntry(board):
 
     return board
 
+def checkTermination(board):
+    # Returns true if no more moves are possible
+    for row in board:  
+        if 0 in row:
+            return False
+    # Try all possible moves
+    tempBoard, tempScore1 = moveUpDown(board, 0, 1)
+    tempBoard, tempScore2 = moveUpDown(board, 0, 0)
+    tempBoard, tempScore3 = moveLeftRight(board, 0, 1)
+    tempBoard, tempScore4 = moveLeftRight(board, 0, 0)
+
+    if tempScore1 + tempScore2 + tempScore3 + tempScore4 != 0:
+        return True 
+    else:
+        return False
+    
+
 def printGameDetails(board, score):
     
     print(board[0])
