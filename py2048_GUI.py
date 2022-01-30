@@ -20,6 +20,7 @@ import copy
 
 # TODOs
 # Fix locations of tiles
+# Fix scoring
 
 ## Sprites used in this pygame - class definitions
 class Background(pygame.sprite.Sprite):
@@ -69,7 +70,7 @@ def update(dt, board, score):
               board, score = moveLeftRight(board, score, 0)
           elif keystate[pygame.K_LEFT]:
               board, score = moveLeftRight(board, score, 1)
-              
+
       # Check to see if anything changed
       if oldBoard != board:   
           # Update board with the new entry
@@ -81,7 +82,7 @@ def update(dt, board, score):
             runGame = False
             # TODO differentiate between term criteria
             
-    return runGame, callDraw
+    return runGame, callDraw, score
                       
    
 def draw(board, screen, score, values2tiles):
@@ -116,6 +117,7 @@ def draw(board, screen, score, values2tiles):
     
     # Update the score and write to caption
     scoreString = "py2048 - Score: " + str(score)
+
     pygame.display.set_caption(scoreString)
     
     # Write the display tot he pygame window
@@ -168,7 +170,7 @@ def main():
     runGame = True # Bool to keep track of if termination criteria has been met
     
     while runGame:
-        runGame, callDraw = update(dt, board, score)
+        runGame, callDraw, score = update(dt, board, score)
         if callDraw:
             draw(board, screen, score, values2tiles)
             
