@@ -2,13 +2,14 @@
 #----------------------------------------------------------------------------
 # Created By  : JJM
 # Created Date: Wed Dec  8 21:20:22 2021
-# version = '1.0'
+# version = '1.1'
 # ---------------------------------------------------------------------------
 """ GUI version of py2048 """
 # ---------------------------------------------------------------------------
 # Rev history
 # ---------------------------------------------------------------------------
 # 1.0 - Initial commit
+# 1.1 - Fixes to GUI scoring
 # ---------------------------------------------------------------------------
 # Imports
 # ---------------------------------------------------------------------------
@@ -20,7 +21,7 @@ import copy
 
 # TODOs
 # Fix locations of tiles
-# Fix scoring
+# Clean up game exit and win screen
 
 ## Sprites used in this pygame - class definitions
 class Background(pygame.sprite.Sprite):
